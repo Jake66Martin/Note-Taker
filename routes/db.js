@@ -3,9 +3,7 @@ const path = require('path');
 
 
 db.get("/", (req, res) => {
-   
-   const filePath = 'C:\bootcamp\github\Note-Taker\db\db.json'
-    res.sendFile(filePath)
+    res.sendFile(path.join(__dirname, '../db/db.json'))
 })
 
 module.exports = db
