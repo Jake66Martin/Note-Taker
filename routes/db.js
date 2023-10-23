@@ -20,7 +20,7 @@ db.post('/', (req, res) => {
         const newNote = {
             text,
             title,
-            note_id: uuid
+            note_id: uuid()
         }
 
         fs.readFile('./db/db.json', 'utf8', (err, data) => {
