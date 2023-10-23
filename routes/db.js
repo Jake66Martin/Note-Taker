@@ -2,6 +2,7 @@ const db = require('express').Router();
 const path = require('path');
 const fs = require('fs');
 const uuid = require('../helpers/uuid')
+const noteData = require('../db/db.json')
 
 
 
@@ -35,14 +36,16 @@ db.post('/', (req, res) => {
             jsonData.push(newNote)
 
 
-            fs.writeFile(`./db/db.json`, JSON.stringify(jsonData, null, 4), (err) =>
-                err
-                    ? console.error(err)
-                    : console.log(
-                        `Note for ${newNote.title} has successfully been written to JSON file`
-                    )
-            );
+            fs.writeFile(`./db/db.json`, JSON.stringify(jsonData, null, 4), (err) => {
+                if (err) {
+                    console.log(err)
+                } else {
+                    return res.json(newNote)
+                }
+
+            });
         });
+
     }
 
 
