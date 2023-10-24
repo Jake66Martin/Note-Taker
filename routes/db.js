@@ -2,7 +2,19 @@ const db = require('express').Router();
 const path = require('path');
 const fs = require('fs');
 const uuid = require('../helpers/uuid')
-// const noteData = require('../db/db.json')
+
+
+
+
+// fs.readFile('./db/db.json', 'utf8', (err, data) => {
+// if (err) {
+//     console.log(err)
+// } else {
+//     db.get('/', (req, res) => {
+//         res.send(data)
+//     })
+// }
+// });
 
 
 // use fs to read file then send back data
