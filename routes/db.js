@@ -2,10 +2,10 @@ const db = require('express').Router();
 const path = require('path');
 const fs = require('fs');
 const uuid = require('../helpers/uuid')
-const noteData = require('../db/db.json')
+// const noteData = require('../db/db.json')
 
 
-
+// use fs to read file then send back data
 db.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, '../db/db.json'))
 });
