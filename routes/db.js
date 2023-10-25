@@ -55,6 +55,29 @@ db.post('/', (req, res) => {
 
 db.delete('/', (req, res) => {
 
+    const itemId = req.params.id;
+
+    fs.readFile('./db/db.json', 'utf8', (err, data) => {
+
+        const jsData = JSON.parse(data)
+
+        for (let i = 0; i < jsData.length; i++) {
+
+            if (itemId === jsData[i].id) {
+
+                jsData.splice(jsData[i], 1);
+
+                fs.writeFile(`./db/db.json`, JSON.stringify(jsData, null, 4), (err) => {
+
+                });
+
+
+            }
+        }
+    });
+
+
+
 });
 
 
