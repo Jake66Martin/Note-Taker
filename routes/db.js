@@ -61,14 +61,15 @@ db.delete('/', (req, res) => {
 
         const jsData = JSON.parse(data)
 
+
         for (let i = 0; i < jsData.length; i++) {
 
             if (itemId === jsData[i].id) {
 
-                jsData.splice(jsData[i], 1);
+                jsData.splice(i, 1);
 
                 fs.writeFile(`./db/db.json`, JSON.stringify(jsData, null, 4), (err) => {
-
+                   return res.json(jsData)
                 });
 
 
