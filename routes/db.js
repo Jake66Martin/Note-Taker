@@ -2,7 +2,7 @@ const db = require('express').Router();
 const path = require('path');
 const fs = require('fs');
 const uuid = require('../helpers/uuid')
-const newData = require('../db/db.json')
+
 
 
 
@@ -53,7 +53,7 @@ db.post('/', (req, res) => {
 
 
 
-db.delete('/', (req, res) => {
+db.delete('/:id', (req, res) => {
 
     const itemId = req.params.id;
 
